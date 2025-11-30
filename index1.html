@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Registration Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        background: #eef3ff;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 450px;
+        background: white;
+        margin: 40px auto;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        font-weight: 700;
+    }
+    label {
+        font-weight: 500;
+        color: #444;
+    }
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 7px 0 15px 0;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    button {
+        width: 100%;
+        background: #0066ff;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: 600;
+    }
+    button:hover {
+        background: #004bcc;
+    }
+    .output-box {
+        width: 450px;
+        background: #ffffff;
+        margin: 20px auto;
+        padding: 25px;
+        border-left: 8px solid #28a745;
+        border-radius: 8px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.2);
+        display: none;
+    }
+    .output-box h3 {
+        color: #28a745;
+        font-size: 22px;
+        margin-top: 0;
+    }
+    .info-line {
+        font-size: 18px;
+        margin: 10px 0;
+        color: #333;
+    }
+    .label {
+        font-weight: bold;
+        color: #0066ff;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#registrationForm").submit(function (event) {
+        event.preventDefault();
+        let name = $("#name").val();
+        let email = $("#email").val();
+        let phone = $("#phone").val();
+        let course = $("#course").val();
+        $("#outName").text(name);
+        $("#outEmail").text(email);
+        $("#outPhone").text(phone);
+        $("#outCourse").text(course);
+        $(".output-box").fadeIn(400);
+    });
+});
+</script>
+</head>
+<body>
+<div class="container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+        <label>Full Name:</label>
+        <input type="text" id="name" required>
+        <label>Email Address:</label>
+        <input type="email" id="email" required>
+        <label>Phone Number:</label>
+        <input type="text" id="phone" required>
+        <label>Course Interested:</label>
+        <select id="course">
+            <option>Web Development</option>
+            <option>Graphic Design</option>
+            <option>AI & Machine Learning</option>
+            <option>Data Science</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div class="output-box">
+    <h3>Application Details</h3>
+    <p class="info-line"><span class="label">Name:</span> <span id="outName"></span></p>
+    <p class="info-line"><span class="label">Email:</span> <span id="outEmail"></span></p>
+    <p class="info-line"><span class="label">Phone:</span> <span id="outPhone"></span></p>
+    <p class="info-line"><span class="label">Course:</span> <span id="outCourse"></span></p>
+</div>
+</body>
+</html>
